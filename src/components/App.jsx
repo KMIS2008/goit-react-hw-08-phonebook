@@ -9,6 +9,7 @@ import {useEffect } from 'react';
 import { selectError, selectIsLoading } from 'redux/selects';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
+import { UserMenu } from './UserMenu/UserMenu'; 
 
 
     export const App =()=> {
@@ -23,6 +24,8 @@ import { fetchContacts } from 'redux/operations';
       return (
 
         <Contater>
+
+          <UserMenu/>
 
            {isLoading && (<p>...isLoading</p>) }
            {error && (<p>Error</p>)}
