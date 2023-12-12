@@ -10,6 +10,16 @@ import { selectError, selectIsLoading } from 'redux/selects';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { UserMenu } from './UserMenu/UserMenu'; 
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+
+const AppLayout = lazy(() => import('./AppLayout/AppLayout'));
+const Home = lazy(()=> import('Pages/Home/Home'));
+const Reistr = lazy(()=> import('Pages/Registr/Registr'));
+const Login = lazy(()=> import ('Pages/Login/Login'));
+const ContactsPage = lazy(()=> import ('Pages/ContactsPage/ContactsPage'))
+
+
 
 
     export const App =()=> {
@@ -24,6 +34,16 @@ import { UserMenu } from './UserMenu/UserMenu';
       return (
 
         <Contater>
+          <Routes>
+            <Route path = "/" element = {<AppLayout/>}>
+              <Route index element={<Home/>}/>
+              <Route path = "/register" element = {<Reistr/>}/>
+              <Route path = "login" element ={<Login/>}/>
+              <Route path = "contacts" element ={<ContactsPage/>}/>
+            </Route>
+            
+          </Routes>
+
 
           <UserMenu/>
 

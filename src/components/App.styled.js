@@ -9,5 +9,6 @@ text-align: start;
 `
 export const Contater = styled.div`
 display: block;
+margin: 0, auto;
 padding: 50px;
 `
