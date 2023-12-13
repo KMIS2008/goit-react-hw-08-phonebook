@@ -3,6 +3,7 @@ import { Navigation } from "components/Navigation/Navigation";
 import { UserMenu } from "components/UserMenu/UserMenu";
 import { useAuth } from "redux/hook/useAuth";
 
+
 export function AppBar(){
     const {isLoggedIn} = useAuth();
 
