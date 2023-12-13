@@ -1,9 +1,10 @@
 import { LoginForm } from "components/LogiForm/LoginForm";
+import { Tittle } from "./Loginstyled";
 
 export default function Login(){
     return (
         <div>
-            <h3>Login</h3>
+            <Tittle>Login</Tittle>
             <LoginForm/>
         </div>
     )

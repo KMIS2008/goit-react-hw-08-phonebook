@@ -7,6 +7,7 @@ import { ContactsList } from 'components/Contacts/Contacts';
 import { FilterConctacts } from 'components/Filter/Filter';
 import { fetchContacts } from 'redux/operations';
 import { useEffect } from 'react';
+import { Wrapper } from './ContactPagestyled';
 
 export default function ContactsPage(){
 
@@ -19,7 +20,7 @@ export default function ContactsPage(){
       }, [dispatch]);
     
     return (
-        <div>
+        <Wrapper>
 
            <SectionTitle title="Phonebook"/>
            <FormAddContact/>
@@ -29,7 +30,7 @@ export default function ContactsPage(){
            <FilterConctacts/>
            <ContactsList/>
 
-        </div>
+        </Wrapper>
     )
     
 }

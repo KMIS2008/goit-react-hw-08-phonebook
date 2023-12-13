@@ -18,4 +18,7 @@ font-size: 18px;
 border: 1px solid ${p=>p.theme.colors.border};
 border-radius: 5px;
 box-shadow: rgb(169, 158, 158) 0px 2px 5px 0px;
+&:hover{
+  background-color: ${p=>p.theme.colors.border};
+}
 `

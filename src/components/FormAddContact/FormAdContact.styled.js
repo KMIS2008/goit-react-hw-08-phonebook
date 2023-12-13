@@ -15,13 +15,15 @@ font-size: 18px;
 border: 1px solid ${p=>p.theme.colors.border};
 border-radius: 5px;
 box-shadow: rgb(169, 158, 158) 0px 2px 5px 0px;
+
+
 `;
 
 export const FormStyle = styled(Form)`
   display: flex;
   flex-direction: column;
   gap:  ${p=>p.theme.spacing(2)};
-  margin-top: ${p=>p.theme.spacing(4)};
+  margin-top: ${p=>p.theme.spacing(2)};
   padding:  ${p=>p.theme.spacing(4)};
   max-width: 400px;
   border: 3px solid ${p=>p.theme.colors.black};

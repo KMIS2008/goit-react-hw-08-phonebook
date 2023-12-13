@@ -1,10 +1,11 @@
 import { RegistrForm } from "components/RegistrForm/RegistrForm";
+import { Tittle } from "./Registrstyled";
 
 
 export default function Registr (){
     return (
         <div>
-           <h3>Registration</h3>
+           <Tittle>Registration</Tittle>
            <RegistrForm/>
         </div>
   

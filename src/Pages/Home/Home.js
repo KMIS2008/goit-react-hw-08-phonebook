@@ -1,7 +1,9 @@
+import { Text } from "./Homestyled";
+
 export default function Home(){
 return (
     <div>
-        <h1> Welcome! It's your Phonebook! </h1>
+        <Text> Welcome! It's your Phonebook! </Text>
     </div>
 )
 }

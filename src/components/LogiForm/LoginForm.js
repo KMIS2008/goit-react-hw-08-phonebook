@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux"
 import { logIn } from "redux/auth/operations";
+import { Form, 
+         Label,
+         Button } from "./LoginFormstyled";
 
 
 
@@ -17,25 +20,25 @@ export const LoginForm =()=>{
         form.reset();
     }
     return(
-        <form onSubmit={handlSubmit}>
-            <label> Email
+        <Form onSubmit={handlSubmit}>
+            <Label> Email
                 <input type="email" 
                        name="email" 
                        placeholder="Введіть адресу електроної пошти" 
                        required
                 />
-            </label>
+            </Label>
 
-            <label > Password
+            <Label > Password
                  <input type="password"
                         name="password"
                         placeholder="Введите пароль"
                         required
                  />
-      </label>
+            </Label>
 
-            <button type="submit">Log in</button>
+            <Button type="submit">Log in</Button>
             
-        </form>
+        </Form>
     )
 }

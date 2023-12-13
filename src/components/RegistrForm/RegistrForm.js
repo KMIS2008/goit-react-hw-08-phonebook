@@ -1,5 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import { Form,
+         Label,
+         Button} from './RegistrFormstyled';
 
 export const RegistrForm = ()=> {
     const dispatch=useDispatch();
@@ -16,17 +19,17 @@ export const RegistrForm = ()=> {
         form.reset();
     }
     return(
-        <form onSubmit={handleSubmit}>
-            <label>Username
+        <Form onSubmit={handleSubmit}>
+            <Label>Username
                 <input type="text" name ="name" placeholder="Введіть ім'я" required/>
-            </label>
-            <label>Email
+            </Label>
+            <Label>Email
                 <input type="email" name="email" placeholder="Введіть адресу електроної пошти" required/>
-            </label>
-            <label>Password
+            </Label>
+            <Label>Password
                 <input type="password" name="password" placeholder="Ввудіть пароль" required/>
-            </label>
-            <button type="submit">Registr</button>
-        </form>
+            </Label>
+            <Button type="submit">Registr</Button>
+        </Form>
     )
 }
