@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/687.120a7687.chunk.js","mappings":"iMAAe,SAASA,IACxB,OACIC,EAAAA,EAAAA,KAAA,OAAAC,UACID,EAAAA,EAAAA,KAAA,MAAAC,SAAI,kBAGZ,C","sources":["Pages/Home/Home.js"],"sourcesContent":["export default function Home(){\nreturn (\n    <div>\n        <h1> Phonebook! </h1>\n    </div>\n)\n}"],"names":["Home","_jsx","children"],"sourceRoot":""}
