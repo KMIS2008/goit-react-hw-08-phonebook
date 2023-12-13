@@ -6,11 +6,6 @@ import { Outlet } from "react-router-dom";
  const AppLayout=()=>{
     return (
         <div>
-            {/* <header>
-                <nav>
-                    <NavLink to="/">Home</NavLink>
-                </nav>
-            </header> */}
 
             <AppBar/>
 

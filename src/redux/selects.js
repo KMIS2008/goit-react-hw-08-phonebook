@@ -5,6 +5,7 @@ import { createSelector } from "@reduxjs/toolkit";
   export const selectIsLoading=state=> state.contact.isLoading;
   export const selectError=state=>state.contact.error;
 
+
   export const selectVisibleContacts = createSelector(
     [ selectContacts, selectFilter],
      (contact, filter) => {

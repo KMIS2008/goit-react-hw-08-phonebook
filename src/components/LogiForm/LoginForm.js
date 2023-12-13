@@ -1,9 +1,38 @@
+import { useDispatch } from "react-redux"
+import { logIn } from "redux/auth/operations";
+
+
+
 export const LoginForm =()=>{
+    const dispatch = useDispatch();
+    const handlSubmit =e=>{
+        e.preventDefault();
+        const form = e.currentTarget;
+        dispatch(
+            logIn({
+                email: form.elements.email.value,
+                password: form.elements.password.value,
+            })
+        )
+        form.reset();
+    }
     return(
-        <form>
+        <form onSubmit={handlSubmit}>
             <label> Email
-                <input type="email" name="email" placeholder="Введіть фдресу електроної пошти" required/>
+                <input type="email" 
+                       name="email" 
+                       placeholder="Введіть фдресу електроної пошти" 
+                       required
+                />
             </label>
+
+            <label > Password
+                 <input type="password"
+                        name="password"
+                        placeholder="Введите пароль"
+                        required
+                 />
+      </label>
 
             <button type="submit">Log in</button>
             

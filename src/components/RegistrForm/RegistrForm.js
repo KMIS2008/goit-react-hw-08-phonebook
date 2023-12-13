@@ -1,6 +1,22 @@
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
+
 export const RegistrForm = ()=> {
+    const dispatch=useDispatch();
+    const handleSubmit=e=>{
+        e.preventDefault();
+        const form=e.currentTarget;
+        dispatch(
+            register({
+                name: form.elements.name.value,
+                email:form.elements.email.value,
+                password: form.elements.password.value,
+            })
+        );
+        form.reset();
+    }
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Username
                 <input type="text" name ="name" placeholder="Введіть ім'я" required/>
             </label>
