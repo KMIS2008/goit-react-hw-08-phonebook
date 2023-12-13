@@ -21,7 +21,7 @@ export const LoginForm =()=>{
             <label> Email
                 <input type="email" 
                        name="email" 
-                       placeholder="Введіть фдресу електроної пошти" 
+                       placeholder="Введіть адресу електроної пошти" 
                        required
                 />
             </label>
