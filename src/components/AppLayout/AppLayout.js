@@ -10,9 +10,9 @@ import { Outlet } from "react-router-dom";
             <AppBar/>
 
             <main>
-                <Suspense fallback={<div>LOADING PAGE...</div>}>
+                {/* <Suspense fallback={<div>LOADING PAGE...</div>}> */}
                     <Outlet/>
-                </Suspense>
+                {/* </Suspense> */}
             </main>
         </div>
     )
