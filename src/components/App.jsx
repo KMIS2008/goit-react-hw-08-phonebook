@@ -5,9 +5,9 @@ import { GlobalStyle } from './GlobalStyle';
 // import {FilterConctacts} from './Filter/Filter';
 import {
         Contater} from './App.styled';
-// import {useEffect } from 'react';
+import {useEffect } from 'react';
 // import { selectError, selectIsLoading } from 'redux/selects';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 // import { fetchContacts } from 'redux/operations';
 import { Route, Routes } from 'react-router-dom';
 // import { lazy } from 'react';
@@ -17,6 +17,10 @@ import Home from 'Pages/Home/Home';
 import Reistr from 'Pages/Registr/Registr';
 import Login from 'Pages/Login/Login';
 import ContactsPage from 'Pages/ContactsPage/ContactsPage';
+import { useAuth } from 'redux/hook/useAuth';
+import { refreshUser } from 'redux/auth/operations';
+import { RestrictedRoute } from './RestrictedRoute'; 
+import { PrivateRoute } from './PrivateRoute';
 
 // const AppLayout = lazy(() => import('./AppLayout/AppLayout'));
 // const Home = lazy(()=> import('Pages/Home/Home'));
@@ -28,37 +32,33 @@ import ContactsPage from 'Pages/ContactsPage/ContactsPage';
     export const App =()=> {
       // const error = useSelector(selectError);
       // const isLoading = useSelector(selectIsLoading);
-      // const dispatch = useDispatch();
+      const dispatch = useDispatch();
 
-      // useEffect(() => {
-      //   dispatch(fetchContacts());
-      // }, [dispatch]);
+      const { isRefreshing } = useAuth();
     
-      return (
-
-        <Contater>
+      useEffect(() => {
+        dispatch(refreshUser());
+    
+      }, [dispatch]);
+    
+      return isRefreshing ? (
+    <p>Оновлення користувача...</p>
+  ) : (
+<Contater>
           <Routes>
             <Route path = "/" element = {<AppLayout/>}>
               <Route index element={<Home/>}/>
               <Route path = "register" element = {<Reistr/>}/>
-              <Route path = "login" element ={<Login/>}/>
-              <Route path = "contacts" element ={<ContactsPage/>}/>
+              <Route path = "login" element ={<RestrictedRoute redirectTo="/contacts" component={<Login/>} />}/>
+              {/* <Route path = "contacts" element ={ <ContactsPage />} /> */}
+              <Route path = "contacts" element ={ <PrivateRoute redirectTo="/login" component={<ContactsPage />} />}/>
               <Route path="*" element={<Home/>} />
             </Route>
-            
           </Routes>
 
-           {/* {isLoading && (<p>...isLoading</p>) }
-           {error && (<p>Error</p>)} */}
-           {/* <SectionTitle title="Phonebook"/> */}
-           {/* <FormAddContact/> */}
-           {/* <TitleContacts>Contacts</TitleContacts> */}
-           {/* <FilterConctacts/> */}
-           {/* <ContactsList/> */}
-      
-           <GlobalStyle/>
-    
-        </Contater>
-      );
+     <GlobalStyle/>
+      </Contater>
+  )
+
     };
     

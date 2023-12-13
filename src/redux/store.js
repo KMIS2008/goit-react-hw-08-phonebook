@@ -15,13 +15,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-// ];
+
 
 
 const authPersistConfig = {
@@ -33,7 +27,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    contacts: contactReduser,
+    contact: contactReduser,
     filter: filterReduser,
   },
   

@@ -1,4 +1,4 @@
-import { selectError, selectIsLoading } from 'redux/selects';
+import { selectError, selectIsLoading } from '../../redux/selects';
 import {useDispatch, useSelector } from 'react-redux';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { FormAddContact } from 'components/FormAddContact/FormAddContact';
@@ -9,6 +9,7 @@ import { fetchContacts } from 'redux/operations';
 import { useEffect } from 'react';
 
 export default function ContactsPage(){
+
     const error = useSelector(selectError);
     const isLoading = useSelector(selectIsLoading);
     const dispatch = useDispatch();
@@ -19,12 +20,12 @@ export default function ContactsPage(){
     
     return (
         <div>
-           {isLoading && (<p>...isLoading</p>) }
-           {error && (<p>Error</p>)}
 
            <SectionTitle title="Phonebook"/>
            <FormAddContact/>
            <TitleContacts>Contacts</TitleContacts>
+           {isLoading && (<p>...isLoading</p>) }
+           {error && (<p>Error</p>)}
            <FilterConctacts/>
            <ContactsList/>
 
