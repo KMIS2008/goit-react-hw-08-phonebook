@@ -35,9 +35,8 @@ const ContactsPage = lazy(()=> import ('Pages/ContactsPage/ContactsPage'))
           <Routes>
             <Route path = "/" element = {<AppLayout/>}>
               <Route index element={<Home/>}/>
-              <Route path = "register" element = {<Reistr/>}/>
+              <Route path="register" element = { <RestrictedRoute redirectTo="/login" component={<Reistr />} />}/>
               <Route path = "login" element ={<RestrictedRoute redirectTo="/contacts" component={<Login/>} />}/>
-              {/* <Route path = "contacts" element ={ <ContactsPage />} /> */}
               <Route path = "contacts" element ={ <PrivateRoute redirectTo="/login" component={<ContactsPage />} />}/>
               <Route path="*" element={<Home/>} />
             </Route>
